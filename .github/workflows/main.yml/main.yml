@@ -1,30 +1,24 @@
-name: Build và Chạy trên VM
+name: Build va Chay tren VM
 
-# Kích hoạt kịch bản này khi có ai đó push lên nhánh 'main'
 on:
   push:
     branches: [ "main" ]
 
 jobs:
   build-and-run:
-    # Quan trọng: Bảo nó chạy trên "robot" của bạn
     runs-on: self-hosted
 
     steps:
-    # Bước 1: Lấy code mới nhất về (code này sẽ được tải về VM)
-    - name: Lấy code mới về
+    - name: Lay code moi ve
       uses: actions/checkout@v3
 
-    # Bước 2: Build image ngay tại VM (dùng Docker trên VM)
-    - name: Build Docker image tại chỗ
+    - name: Build Docker image tai cho
       run: docker build -t hello-devops-image .
 
-    # Bước 3: Dừng và xóa container cũ (nếu có)
-    - name: Dừng và xóa container cũ
+    - name: Dung va xoa container cu
       run: |
         docker stop hello-devops-container || true
         docker rm hello-devops-container || true
 
-    # Bước 4: Chạy container mới từ image vừa build
-    - name: Chạy container mới
+    - name: Chay container moi
       run: docker run -d -p 8080:8080 --name hello-devops-container hello-devops-image
