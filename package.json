@@ -1,0 +1,10 @@
+{
+  "name": "hello-devops",
+  "version": "1.0.0",
+  "description": "My simple web app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {}
+}
