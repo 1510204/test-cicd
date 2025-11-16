@@ -13,12 +13,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Docker image tai cho
-      run: docker build -t hello-devops-image .
+      run: docker build -t test-cicd-image .
 
     - name: Dung va xoa container cu
       run: |
-        docker stop hello-devops-container || true
-        docker rm hello-devops-container || true
+        docker stop test-cicd-container || true
+        docker rm test-cicd-container || true
 
     - name: Chay container moi
-      run: docker run -d -p 8080:8080 --name hello-devops-container hello-devops-image
+      run: docker run -d -p 8080:8080 --name test-cicd-container test-cicd-image
