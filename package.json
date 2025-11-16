@@ -1,5 +1,5 @@
 {
-  "name": "hello-devops",
+  "name": "test-cicd",
   "version": "1.0.0",
   "description": "My simple web app",
   "main": "app.js",
