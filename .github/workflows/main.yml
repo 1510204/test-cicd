@@ -21,6 +21,6 @@ jobs:
         docker rm test-cicd-container || true
 
     - name: Chay container moi
-      run: docker run -d -p 8080:8080 --name test-cicd-container test-cicd-image  
+      run: docker run -d -p 8080:8080 --restart unless-stopped --name test-cicd-container test-cicd-image  
 
 
